@@ -11,15 +11,7 @@
             int age = 0;
 
             // Ask for name and ensure it is not empty
-            while (true)
-            {
-                Console.Write("Enter your name: ");
-                name = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(name))
-                    break;
-                else
-                    Console.WriteLine("Name cannot be empty.");
-            }
+            name = AskName();
 
             // Ask for age and ensure it is a positive integer
             while (true)
@@ -51,6 +43,22 @@
             // Exact match comparison (case-sensitive)
             if (name.Equals(compareName))
                 Console.WriteLine("Your name is exactly 'Matti' (case-sensitive).");
+        }
+
+        private static string AskName()
+        {
+            string name;
+            while (true)
+            {
+                Console.Write("Enter your name: ");
+                name = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(name))
+                    break;
+                else
+                    Console.WriteLine("Name cannot be empty.");
+            }
+
+            return name;
         }
     }
 }
